@@ -5,7 +5,7 @@
 - Avendaño Calderon Juan Gerardo
 - Garcia Rodríguez María Azucena
 - Sanchez Valdivia Dhamar
-- J. Merari...
+- J. Merari.
 
 ---
 
