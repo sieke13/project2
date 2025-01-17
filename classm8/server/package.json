@@ -1,13 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Backend for Classm8 project",
+  "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "build": "npx tsc",
     "start": "npm run build && node dist/server.js --ignore client",
-    "dev": "npx nodemon --watch src --exec \"npm run build && node dist/server.js\"",
+    "dev": "npx nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node dist/seeds/index.js"
   },
@@ -16,20 +16,16 @@
     "ext": "ts,json,js",
     "exec": "npx tsc && node dist/server.js"
   },
-  "keywords": ["server", "express", "sequelize", "typescript"],
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.5",
-    "sequelize": "^6.37.3",
-    "morgan": "^1.10.0" // Added logger for better debugging
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -38,3 +34,4 @@
     "typescript": "^5.4.5"
   }
 }
+
