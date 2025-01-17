@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+
+
+# Ignore environment variables
+.env
+frontend/.env
+backend/.env
+
+
+# Logs
+logs/
+*.log
+
+# Build files
+dist/
+build/
+
+# React-specific
+frontend/.env
+frontend/node_modules/
+
+# Database
+*.sqlite
+*.db
+
+# OS-specific
+.DS_Store
+Thumbs.db

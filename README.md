@@ -1,75 +1,72 @@
 # **CLASSM8**
 
 **Team Members:**
-- Avendaño Calderon Juan Gerardo  
-- Garcia Rodríguez María Azucena  
-- Sanchez Valdivia Dhamar  
+
+- Avendaño Calderon Juan Gerardo
+- Garcia Rodríguez María Azucena
+- Sanchez Valdivia Dhamar
 - J. Merari...
 
 ---
 
 ## **Project Description**
 
-CLASSM8 is a collaborative classroom management platform designed for both teachers and students. The application streamlines class communication and enhances learning experiences through interactive features such as announcements, assignments, and a discussion board.
+CLASSM8 is a collaborative classroom management platform designed to foster interaction and streamline classroom management. The application empowers students with tools for communication, organization, and engagement through features such as announcements, assignments, and discussion boards.
 
 ---
 
 ## **User Stories**
 
-### **Teacher**
-- Act as an administrator for the class, with the ability to remove members.
-- Post announcements and assignments that students can view on their dashboards.
-- Track and respond to students’ questions.
-
 ### **Student**
-- Create an account to access class content.
-- Ask questions on the classroom board.
+
+- Create an account in order to access the class contents.
+- Add and modify activities pertaining to the class’ calendar.
+- Post questions on the classroom board.
 - Reply to other students’ questions.
 
 ---
 
 ## **Features**
 
-### **General**
-- A responsive dashboard for teachers and students.
-- User authentication to control access to class materials.
-- Role-based access (Teacher or Student).
+### **General Features**
 
-### **Teacher Features**
-- Create, edit, and delete class announcements and assignments.
-- View and respond to student questions.
-- Manage classroom members.
+- Secure login and user authentication.
+- A responsive dashboard tailored for students.
 
 ### **Student Features**
-- Access classroom announcements and assignments.
-- Post and reply to questions on the classroom board.
+
+- View classroom announcements and assignments.
+- Post questions and reply to other students’ posts.
+- Add and modify class calendar activities.
 
 ---
 
 ## **Acceptance Criteria**
 
-1. The header displays class information (e.g., professor name, year, etc.).
-2. The application is accessible via a unique URL.
-3. Class content and information are accessible only after logging in.
-4. Users can post, edit, or delete questions on the classroom's main dashboard.
-5. Professors can post class announcements.
+1. The header displays class details such as the professor’s name, year, and course information.
+2. Users can access the application through a unique URL.
+3. Class content is restricted to authenticated users.
+4. Users can post, edit, and delete their questions on the classroom dashboard.
+5. Users can reply to classmates’ posts (questions).
+6. Class schedules, deadlines, or events are displayed in the main page.
 
 ---
 
 ## **Technologies Used**
 
-- **Frontend**: React, JavaScript, HTML, CSS  
-- **Backend**: Node.js, Express.js  
-- **Database**: PostgreSQL with Sequelize ORM  
-- **Authentication**: JSON Web Tokens (JWT)  
-- **Hosting**: Render  
-- **Other Tools**: Git, GitHub
+- **Frontend**: React, JavaScript, HTML, CSS
+- **Backend**: Node.js, Express.js
+- **Database**: PostgreSQL with Sequelize ORM
+- **Authentication**: JSON Web Tokens (JWT)
+- **Hosting**: Render
+- **Version Control**: Git, GitHub
 
 ---
 
 ## **Setup Instructions**
 
 ### **Backend**
+
 1. Navigate to the `backend` folder:
    ```bash
    cd backend
@@ -78,7 +75,7 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
    ```bash
    npm install
    ```
-3. Create a `.env` file and add the following environment variables:
+3. Create a `.env` file and configure the following variables:
    ```plaintext
    DB_NAME=your_database_name
    DB_USER=your_database_user
@@ -86,12 +83,17 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
    DB_HOST=localhost
    JWT_SECRET=your_jwt_secret
    ```
-4. Start the backend server:
+4. Run database migrations:
+   ```bash
+   npx sequelize-cli db:migrate
+   ```
+5. Start the backend server:
    ```bash
    npm start
    ```
 
 ### **Frontend**
+
 1. Navigate to the `frontend` folder:
    ```bash
    cd frontend
@@ -100,7 +102,7 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
    ```bash
    npm install
    ```
-3. Create a `.env` file and add the following variable:
+3. Create a `.env` file and set the API URL:
    ```plaintext
    REACT_APP_API_URL=http://localhost:5000/api
    ```
@@ -113,7 +115,7 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
 
 ## **How to Contribute**
 
-1. Clone the repository:
+1. Fork the repository and clone your fork:
    ```bash
    git clone https://github.com/sieke13/project2
    ```
@@ -121,23 +123,29 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
    ```bash
    git checkout -b feature/your-feature-name
    ```
-3. Push your branch and create a pull request:
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. Push your branch to the repository:
    ```bash
    git push -u origin feature/your-feature-name
    ```
+5. Open a pull request for review.
 
 ---
 
 ## **Future Improvements**
-- Add real-time updates to the classroom board using WebSockets.
-- Allow file uploads for assignments.
-- Enable calendar integration for deadlines and events.
+
+- Implement real-time updates for the discussion board using WebSockets.
+- Add a file upload feature for assignments and resources.
+- Integrate calendar functionality for better scheduling of events and deadlines.
 
 ---
 
-Video Demonstration
+## **Demonstration**
 
-Placeholder for the project demonstration video. Add the video link here once it's ready.
+Add a video link here showcasing the project features and usage.
 
 ---
 
