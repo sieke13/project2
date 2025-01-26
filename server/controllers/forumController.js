@@ -1,4 +1,4 @@
-const ForumPost = require('server\models\ForumPost.Js');  // Import the ForumPost model
+const ForumPost = require('../../models/ForumPost.js');  // Import the ForumPost model
 
 exports.getPosts = async (req, res) => {
   try {
