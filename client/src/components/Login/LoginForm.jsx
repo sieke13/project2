@@ -12,7 +12,7 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5173/api/login', { email, password }); //ERRORRRRR
+      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password }); //ERRORRRRR
       localStorage.setItem('token', response.data.token);
       return ( <button type = "button" onClick={clickHandler}>Login</button>
         );
