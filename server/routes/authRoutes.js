@@ -11,35 +11,34 @@ router.post('/login', authController.login);
 
 module.exports = router;
 
-// Register route
-router.post('/register', async (req, res) => {
-    console.log('POST /register endpoint'); // Log to track if you get to this
-    const { email, password } = req.body;
+// // Register route
+// router.post('/register', async (req, res) => {
+//     console.log('POST /register endpoint'); // Log to track if you get to this
+//     const { email, password } = req.body;
     
-    try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ email, password: hashedPassword });
+//     try {
+//         const hashedPassword = await bcrypt.hash(password, 10);
+//         const newUser = new User({ email, password: hashedPassword });
         
-        await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' }); // Fixed the syntax here
-    } catch (error) { 
-        res.status(500).json({ error: 'Registration failed' }); // Fixed syntax here too
-    }
-});
+//         await newUser.save();
+//         res.status(201).json({ message: 'User registered successfully' }); // Fixed the syntax here
+//     } catch (error) { 
+//         res.status(500).json({ error: 'Registration failed' }); // Fixed syntax here too
+//     }
+// });
 
-// Login route
-router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+// // Login route
+// router.post('/login', async (req, res) => {
+//     const { email, password } = req.body;
     
-    try {
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(400).json({ error: 'Invalid email or password' });
-        }
+//     try {
+//         const user = await User.findOne({ email });
+//         if (!user) {
+//             return res.status(400).json({ error: 'Invalid email or password' });
+//         }
 
-        // Additional login logic goes here (if any)...
-    } catch (error) {
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+//     } catch (error) {
+//         res.status(500).json({ error: 'Server error' });
+//     }
+// });
 

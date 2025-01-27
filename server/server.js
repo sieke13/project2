@@ -47,8 +47,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/forum', forumRoutes);
 
 sequelize.sync().then(() => {
-  app.listen(5173, () => {
-    console.log('Server running on http://localhost:5173');
+  app.listen(5000, () => {
+    console.log('Server running on http://localhost:5000');
   });
 });
 
