@@ -1,11 +1,7 @@
 DROP DATABASE IF EXISTS virtualbrd_db;
 CREATE DATABASE virtualbrd_db;
 \c virtualbrd_db;
-CREATE TABLE students (
-    userid SERIAL PRIMARY KEY,
-    firstName VARCHAR (30)NOT NULL,
-    lastName VARCHAR (30) NOT NULL,
-    username VARCHAR (30) NOT NULL UNIQUE,
+CREATE TABLE users (
     email VARCHAR (50) NOT NULL UNIQUE,
     passwordHash VARCHAR (25) NOT NULL
 )

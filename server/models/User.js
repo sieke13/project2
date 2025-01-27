@@ -5,48 +5,46 @@ import sequelize from '../config/config.js';  // Your Sequelize instance
 export class User extends Model {
   // Hash the password before saving the user
   async setPassword(password) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(password, saltRounds);
+  this.password=password;
   }
 }
 
-export function UserFactory(sequelize) {
-  User.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+
+//export function UserFactory(sequelize) {
+User.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    tableName: 'users',
+    sequelize,
+    hooks: {
+      beforeCreate: async (user) => {
+        await user.setPassword(user.password);
       },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      beforeUpdate: async (user) => {
+        await user.setPassword(user.password);
       },
     },
-    {
-      tableName: 'users',
-      sequelize,
-      hooks: {
-        beforeCreate: async (user) => {
-          await user.setPassword(user.password);
-        },
-        beforeUpdate: async (user) => {
-          await user.setPassword(user.password);
-        },
-      },
-    }
-  );
-  return User;
-}
+  }
+);
 
+export default User;
+//}
+/*
 // Define the User model using sequelize.define()
 const UserModel = sequelize.define('User', {
   id: {
@@ -76,3 +74,4 @@ const UserModel = sequelize.define('User', {
 
 export default UserModel;
 
+*/
