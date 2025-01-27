@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
-const sequelize = new Sequelize(process.env.DB_URL, {
+const sequelize = new Sequelize(process.env.DB_URL, { //ERROR....
   logging: console.log, // Enable logging for debugging
 });
 sequelize.authenticate()
