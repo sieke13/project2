@@ -1,4 +1,3 @@
-
 //OPTION A
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -32,5 +31,4 @@ exports.login = async (req, res) => {
 };
 
 
-//OPTION B
 
