@@ -43,6 +43,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serves static files in the entire client's dist folder
+app.use(express.static('../client/dist'));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/forum', forumRoutes);
 
