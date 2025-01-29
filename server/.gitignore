@@ -30,3 +30,6 @@ coverage/
 # Ignore other sensitive files (e.g., secret keys, certs)
 *.pem
 *.key
+
+# Allow .envEXAMPLE file
+!.envEXAMPLE
