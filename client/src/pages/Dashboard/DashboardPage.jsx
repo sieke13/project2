@@ -1,6 +1,7 @@
 import React from 'react';
 import Forum from '../../components/Forum/Forum.jsx';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
+import '../../styles/styles.css';
 
 function DashboardPage() {
   return (

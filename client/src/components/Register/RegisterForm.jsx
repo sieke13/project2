@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import  { useNavigate } from 'react-router-dom';
+import '../../styles/styles.css';
 
 function RegisterForm() {
   const [email, setEmail] = useState('');
@@ -11,8 +12,8 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/register', { email, password });
-      console.log('User registered:', response);
+      const response = await axios.post('http://localhost:5000/api/auth/register', { email, password }); //ERROR
+      console.log('User registered:', response)
       return ( <button type = "button" onClick={clickHandler}>Register</button>
       );
     } catch (error) {
@@ -29,5 +30,8 @@ function RegisterForm() {
   );
 }
 
+
+
 export default RegisterForm;
+
 
