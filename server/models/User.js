@@ -1,16 +1,20 @@
-import { DataTypes, Model } from 'sequelize';  // Import both DataTypes and Model
+import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
-import sequelize from '../config/config.js';  // Your Sequelize instance
+import sequelize from '../config/config.js'; // Adjust the path as necessary
 
-export class User extends Model {
-  // Hash the password before saving the user
+class User extends Model {
+  // Method to set and hash the password
   async setPassword(password) {
-  this.password=password;
+    const salt = await bcrypt.genSalt(10); // Generate a salt
+    this.password = await bcrypt.hash(password, salt); // Hash the password
+  }
+
+  // Method to compare passwords for authentication
+  async validatePassword(password) {
+    return await bcrypt.compare(password, this.password); // Compare provided password with hashed password
   }
 }
 
-
-//export function UserFactory(sequelize) {
 User.init(
   {
     id: {
@@ -33,45 +37,15 @@ User.init(
     sequelize,
     hooks: {
       beforeCreate: async (user) => {
-        await user.setPassword(user.password);
+        await user.setPassword(user.password); // Hash password before creating user
       },
       beforeUpdate: async (user) => {
-        await user.setPassword(user.password);
+        if (user.changed('password')) { // Only hash if the password has changed
+          await user.setPassword(user.password); // Hash password before updating user
+        }
       },
     },
   }
 );
 
 export default User;
-//}
-/*
-// Define the User model using sequelize.define()
-const UserModel = sequelize.define('User', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,  // Auto-incrementing ID field
-  },
-  email: {
-    type: DataTypes.STRING,
-    unique: true,  // Ensure emails are unique
-    allowNull: false,  // Email is required
-    validate: {
-      isEmail: true,  // Validates that the value is a valid email
-    },
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,  // Password is required
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: true,  // Name is optional
-  },
-}, {
-  timestamps: true,  // Automatically adds createdAt and updatedAt fields
-});
-
-export default UserModel;
-
-*/

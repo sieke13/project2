@@ -1,20 +1,16 @@
-// const ForumPost = require('../models/ForumPost.js');  // Import the ForumPost model
-import ForumPost from '../models/ForumPost.js'; //IMPORT FORUM POST MODEL
+import ForumPost from '../models/ForumPost.js';
 
-exports.getPosts = async (req, res) => {
+export const getPosts = async (req, res) => {
   try {
-    // Get all posts from the database
     const posts = await ForumPost.findAll();
-
     res.status(200).json(posts);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching posts:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
 
-//Added to verify server
-exports.createPost = async (req, res) => {
+export const createPost = async (req, res) => {
   try {
     const { title, content } = req.body;
 
@@ -22,14 +18,10 @@ exports.createPost = async (req, res) => {
       return res.status(400).json({ message: 'Title and content are required' });
     }
 
-    const newPost = await ForumPost.create({
-      title,
-      content,
-    });
-
+    const newPost = await ForumPost.create({ title, content });
     res.status(201).json(newPost);
   } catch (err) {
-    console.error(err);
+    console.error('Error creating post:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
