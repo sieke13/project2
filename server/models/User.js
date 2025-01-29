@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
-import sequelize from '../config/config.js'; // Adjust the path as necessary
+import { sequelize } from '../config/config.js'; // Adjust the path as necessary
 
 class User extends Model {
   // Method to set and hash the password
