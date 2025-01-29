@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config/config.js'; // Adjust the path as necessary
+import sequelize from '../config/config.js'; 
 
 class ForumPost extends Model {}
 
@@ -21,7 +21,7 @@ ForumPost.init(
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'users', // Name of the table
+        model: 'users', 
         key: 'id',
       },
     },
