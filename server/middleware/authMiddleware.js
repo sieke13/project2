@@ -1,7 +1,10 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 const authenticate = (req, res, next) => {
-  const token = req.headers['authorization'];
+  const authHeader = req.headers['authorization'];
+  if (!authHeader) return res.status(403).json({ message: 'Authorization header missing' });
+
+  const token = authHeader.split(' ')[1];
   if (!token) return res.status(403).json({ message: 'No token provided' });
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -11,4 +14,4 @@ const authenticate = (req, res, next) => {
   });
 };
 
-module.exports = authenticate;
+export default authenticate;

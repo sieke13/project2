@@ -1,10 +1,10 @@
 const express = require('express');
-const router = express.Router();
-const forumController = require('../controllers/forumController');
-const authenticate = require('../middleware/authMiddleware');
+const { getPosts, createPost } = require('../controllers/forumController.js');
+const authenticate = require('../middleware/authMiddleware.js');
 
-router.get('/posts', forumController.getPosts);
-router.post('/posts', authenticate, forumController.createPost);
+const router = express.Router();
+
+router.get('/posts', getPosts);
+router.post('/posts', authenticate, createPost);
 
 module.exports = router;
-

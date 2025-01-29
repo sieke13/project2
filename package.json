@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A full-stack web app with React, Express, PostgreSQL, and Sequelize",
     "main": "server.js",
+    "type": "module",
     "scripts": {
         "start": "cd server && node server.js",
         "start:dev": "concurrently \"npm run server\" \"npm run client\"",
