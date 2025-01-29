@@ -47,27 +47,55 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
 
 ## **Technologies Used**
 
-- **Frontend**: React, JavaScript, HTML, CSS  
-- **Backend**: Node.js, Express.js, Axios, Sequelize  
-- **Database**: PostgreSQL with Sequelize ORM  
-- **Authentication**: JSON Web Tokens (JWT)  
-- **Hosting**: Render  
-- **Other Tools**: Git, GitHub, Wikipedia API
+### **Backend (Server) Dependencies**
+- bcrypt
+- cors
+- dotenv
+- express
+- jsonwebtoken
+- pg
+- pg-hstore
+- sequelize
+
+### **Frontend (Client) Dependencies**
+- axios
+- react
+- react-dom
+- react-router-dom
+
+### **Dev Dependencies**
+- vite
+
+### **Root Dependencies**
+- concurrently
+
+### **Full Project Management**
+- **Git & GitHub**: Version control system.
+- **Wikipedia API**: Fetching external data for knowledge enhancement.
+- **Hosting**: Render.
 
 ---
 
 ## **Setup Instructions**
 
-### **Backend**
-1. Navigate to the `backend` folder:
+### **Backend (Server) Setup**
+1. Navigate to the `server` folder:
    ```bash
-   cd backend
+   cd server
    ```
-2. Install dependencies:
+2. Initialize a new Node.js project:
    ```bash
-   npm install
+   npm init -y
    ```
-3. Create a `.env` file and add the following environment variables:
+3. Install dependencies:
+   ```bash
+   npm install express sequelize pg pg-hstore dotenv jsonwebtoken bcrypt cors
+   ```
+4. Install development dependencies:
+   ```bash
+   npm install --save-dev nodemon
+   ```
+5. Create a `.env` file and add the following environment variables:
    ```plaintext
    DB_NAME=classm8_db
    DB_USER=your_database_user
@@ -75,25 +103,45 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
    DB_HOST=localhost
    JWT_SECRET=your_jwt_secret
    ```
-4. Start the backend server:
+6. Start the backend server:
    ```bash
    npm start
    ```
 
-### **Frontend**
-1. Navigate to the `frontend` folder:
+### **Frontend (Client) Setup**
+1. Navigate to the `client` folder:
    ```bash
-   cd frontend
+   cd client
    ```
 2. Install dependencies:
    ```bash
-   npm install
+   npm install react react-dom react-router-dom
    ```
-3. Create a `.env` file and add the following variable:
+3. Install additional dependencies:
+   ```bash
+   npm install axios
+   ```
+4. Initialize TypeScript compilation:
+   ```bash
+   npx tsc
+   ```
+5. Set environment options:
+   ```bash
+   export NODE_OPTIONS=--openssl-legacy-provider
+   ```
+6. Install JWT decode package:
+   ```bash
+   npm install jwt-decode
+   ```
+7. Ensure all dependencies are installed:
+   ```bash
+   npm i
+   ```
+8. Create a `.env` file and add the following variable:
    ```plaintext
    REACT_APP_API_URL=http://localhost:5000/api
    ```
-4. Start the frontend development server:
+9. Start the frontend development server:
    ```bash
    npm start
    ```
@@ -155,4 +203,3 @@ This project is licensed under the MIT License.
 ## **Video Demonstration**
 
 Placeholder for the project demonstration video. Add the video link here once it's ready.
-
