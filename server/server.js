@@ -1,10 +1,12 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { config, sequelize } from './config/config.js';
-import authRoutes from './routes/authRoutes.js';
-import forumRoutes from './routes/forumRoutes.js';
+import routes from './routes/index.js'; 
+
+dotenv.config(); // ✅ Load environment variables at the start
 
 // Create an instance of the Express application
 const app = express();
@@ -25,9 +27,8 @@ const __dirname = path.dirname(__filename);
 // Serve static files from the client's dist folder
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Define routes for authentication and forum functionalities
-app.use('/api/auth', authRoutes);
-app.use('/api/forum', forumRoutes);
+// Use the consolidated routes
+app.use(routes);
 
 // Serve the main HTML file for the root URL
 app.get('*', (req, res) => {
