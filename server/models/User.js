@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
-import { sequelize } from '../config/config.js'; // Adjust the path as necessary
+import { sequelize } from '../config/config.js'; // Ensure the path is correct
 
 class User extends Model {
   // Method to set and hash the password
@@ -37,11 +37,11 @@ User.init(
     sequelize,
     hooks: {
       beforeCreate: async (user) => {
-        await user.setPassword(user.password); // Hash password before creating user
+        await user.setPassword(user.password); 
       },
       beforeUpdate: async (user) => {
-        if (user.changed('password')) { // Only hash if the password has changed
-          await user.setPassword(user.password); // Hash password before updating user
+        if (user.changed('password')) { 
+          await user.setPassword(user.password);
         }
       },
     },

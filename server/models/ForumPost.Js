@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import { sequelize} from '../config/config.js'; 
+import { sequelize } from '../config/config.js'; 
 
 class ForumPost extends Model {}
 
@@ -18,16 +18,9 @@ ForumPost.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'users', 
-        key: 'id',
-      },
-    },
   },
   {
-    tableName: 'posts',
+    tableName: 'forum_posts',
     sequelize,
   }
 );
