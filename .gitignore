@@ -1,1 +1,35 @@
-node_modules
+
+node_modules/
+
+# Vite build directory (frontend)
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables - Do not commit your environment file that contains sensitive data like API keys, secrets, and database credentials
+.env
+.env.local
+.env.*.local
+
+# OS-specific files
+.DS_Store      # macOS system file
+Thumbs.db      # Windows system file
+
+# Coverage directory (if using testing tools like Jest)
+coverage/
+
+# Optional: Ignore package-lock.json or yarn.lock if you don't want to track the package lock files
+# package-lock.json
+# yarn.lock
+
+# Ignore other sensitive files (e.g., secret keys, certs)
+*.pem
+*.key
+
+# Allow .envEXAMPLE file
+!.envEXAMPLE
