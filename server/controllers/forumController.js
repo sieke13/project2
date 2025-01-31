@@ -1,4 +1,4 @@
-import ForumPost from '../models/ForumPost.js';
+import ForumPost from '../models/ForumPostTest.js';
 
 export const getPosts = async (req, res) => {
   try {
