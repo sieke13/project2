@@ -1,10 +1,12 @@
 import { Router } from 'express';
-import userRouter from './userRoutes.js';
-import forumRoutes from './forumRoutes.js';
-
+import authRoutes from '../authRoutes.js';  
+import forumRoutes from './forumRoutes.js'; 
 const router = Router();
 
-router.use('/users', userRouter);
+// /api/auth
+router.use('/auth', authRoutes);
+
+// /api/forum
 router.use('/forum', forumRoutes);
 
 export default router;

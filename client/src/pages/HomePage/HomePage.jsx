@@ -6,8 +6,12 @@ import '../../styles/styles.css';
 function HomePage() {
   return (
     <div className="home-page">
+      
+      <main>
+      
       <LoginForm />
       <RegisterForm />
+      </main>
     </div>
   );
 }
