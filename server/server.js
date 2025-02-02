@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { config, sequelize } from './config/config.js';
 import routes from './routes/index.js';
+import { getPosts, createPost, updatePost, deletePost } from './controllers/forumController.js'; 
 
 dotenv.config(); // Load environment variables at the start
 
@@ -20,6 +21,12 @@ app.use(cors({
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
+
+// Ensure these routes exist
+app.get('/api/forum/posts', getPosts);
+app.post('/api/forum/posts', createPost);
+app.put('/api/forum/posts', updatePost);
+app.delete('/api/forum/posts', deletePost);
 
 // Parse incoming JSON requests
 app.use(express.json());

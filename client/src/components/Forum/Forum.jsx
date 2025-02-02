@@ -12,7 +12,7 @@ function Forum() {
   const [error, setError] = useState(''); // Error state
 
   const fetchPosts = async () => {
-    setLoading(true);
+    console.log("fetchPosts function is running..."); // Debugging log
     try {
       const response = await axios.get('/api/forum/posts');
       if (Array.isArray(response.data)) {
