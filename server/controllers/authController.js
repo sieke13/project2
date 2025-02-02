@@ -22,19 +22,12 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "Email already in use" });
     }
 
-    console.log("🔑 Hashing password...");
-    const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("✅ Password hashed successfully!");
-
+   
     // Create the new user
-    const newUser = await User.create({ email, password: hashedPassword });
+    const newUser = await User.create({ email, password });
     console.log("✅ User created successfully:", newUser.email);
      res.json(newUser);
-    // Optionally, you can return the new user's details (without sensitive info)
-    // res.status(201).json({ 
-    //  message: "User registered successfully",
-    //  user: { id: newUser.id, email: newUser.email }
-    //});
+    
   } catch (error) {
     console.error("❌ Registration error:", error);
     return res.status(500).json({ 

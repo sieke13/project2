@@ -12,7 +12,8 @@
         "install-server": "cd server && npm install",
         "install": "npm run install-client && npm run install-server",
         "build": "cd client && npm run build",
-        "render-build": "npm run install && npm run build"
+        "render-build": "npm run install && npm run build",
+        "seed":"cd server && node seeders/index.js"
     },
     "dependencies": {
         "bcrypt": "^5.1.1",
