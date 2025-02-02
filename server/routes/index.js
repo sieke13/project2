@@ -4,11 +4,10 @@ import apiRoutes from './api/index.js';
 import { authenticateToken } from '../middleware/authMiddleware.js';
 
 const router = Router();
-
-
+// /api/auth
 router.use('/auth', authRoutes);
 
-
+// /api/api
 router.use('/api', authenticateToken, apiRoutes); 
 
 export default router;

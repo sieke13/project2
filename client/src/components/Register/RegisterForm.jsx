@@ -12,13 +12,12 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', { email, password }); //ERROR
+      const response = await axios.post('/api/auth/register', { email, password }); 
       console.log('User registered:', response)
       setEmail('');
       setPassword('');
       await navigate('/dashboard');
-     // return ( <button type = "button" onClick={clickHandler}>Register</button>
-     // );
+    
     } catch (error) {
       console.error('Registration failed:', error);
     }
