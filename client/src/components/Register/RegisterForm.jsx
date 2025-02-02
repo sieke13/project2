@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { useNavigate } from 'react-router-dom';
 import '../../styles/styles.css';
 
-function RegisterForm() {
+function register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -34,6 +34,6 @@ function RegisterForm() {
 
 
 
-export default RegisterForm;
+export default register;
 
 
