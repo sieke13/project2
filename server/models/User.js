@@ -11,7 +11,8 @@ class User extends Model {
 
   // Method to compare passwords for authentication
   async validatePassword(password) {
-    return await bcrypt.compare(password, this.password); // Compare provided password with hashed password
+    console.log(password,this.password)
+       return await bcrypt.compare(password, this.password); // Compare provided password with hashed password
   }
 }
 

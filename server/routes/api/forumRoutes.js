@@ -4,10 +4,10 @@ import { getPosts, createPost } from '../../controllers/forumController.js';
 
 const router = Router();
 
-// GET /api/forum/posts - Get all forum posts
+// GET /api/api/forum/posts - Get all forum posts
 router.get('/posts', authenticateToken, getPosts);
 
-// POST /api/forum/posts - Create a new forum post
+// POST /api/api/forum/posts - Create a new forum post
 router.post('/posts', authenticateToken, createPost);
 
 export default router;

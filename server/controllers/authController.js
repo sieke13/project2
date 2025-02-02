@@ -44,8 +44,9 @@ export const register = async (req, res) => {
   }
 };
 
-// User Login (POST /api/auth/login)
+// User Login (POST /auth/login)
 export const login = async (req, res) => {
+  console.log("Login",req.body)
   try {
     console.log("🔍 Incoming login request:", req.body);
 
@@ -61,8 +62,9 @@ export const login = async (req, res) => {
     console.log("✅ User found, verifying password...");
 
     // Compare the provided password with the stored hashed password
-    const passwordIsValid = await bcrypt.compare(password, user.password);
-    console.log("🔑 Password match:", passwordIsValid);
+//    const passwordIsValid = await bcrypt.compare(password, user.password);
+const passwordIsValid = await user.validatePassword(password);
+console.log("🔑 Password match:", passwordIsValid);
 
     if (!passwordIsValid) {
       console.log("❌ Invalid password!");
@@ -79,7 +81,7 @@ export const login = async (req, res) => {
 
 
     console.log("✅ Login successful! Token generated.");
-    return res.status(200).json({ 
+    res.status(200).json({ 
       token, 
       user: { id: user.id, email: user.email } 
     });

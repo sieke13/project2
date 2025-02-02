@@ -10,6 +10,7 @@ function SearchBar() {
       `https://en.wikipedia.org/w/api.php?action=opensearch&search=${query}&format=json`
     );
     const data = await response.json();
+    console.log(data,"Search Results");
     setResults(data[1]);
   };
 
