@@ -29,12 +29,12 @@ export const register = async (req, res) => {
     // Create the new user
     const newUser = await User.create({ email, password: hashedPassword });
     console.log("✅ User created successfully:", newUser.email);
-
+     res.json(newUser);
     // Optionally, you can return the new user's details (without sensitive info)
-    return res.status(201).json({ 
-      message: "User registered successfully",
-      user: { id: newUser.id, email: newUser.email }
-    });
+    // res.status(201).json({ 
+    //  message: "User registered successfully",
+    //  user: { id: newUser.id, email: newUser.email }
+    //});
   } catch (error) {
     console.error("❌ Registration error:", error);
     return res.status(500).json({ 
