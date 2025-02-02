@@ -189,7 +189,7 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
 
 ## **Links**
 - **GitHub Repository:** [Project Link](https://github.com/sieke13/project2)
-- **Deployed Application:** [Classm8 on Render](https://project2-at1r.onrender.com)
+- **Deployed Application:** [Classm8 on Render]( https://classm8.onrender.com/)
 - **Demo Video:** _Coming Soon_
 
 ---
