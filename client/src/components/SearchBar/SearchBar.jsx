@@ -9,9 +9,10 @@ function SearchBar() {
     const response = await fetch(
       `https://en.wikipedia.org/w/api.php?action=opensearch&search=${query}&format=json`
     );
-    const data = await response.json();
-    console.log(data,"Search Results");
-    setResults(data[1]);
+    console.log(response,"Response");
+   // const data = await response.json();
+  //  console.log(data,"Search Results");
+   // setResults(data[1]);
   };
 
   return (
@@ -24,7 +25,7 @@ function SearchBar() {
       />
       <button onClick={handleSearch}>Search</button>
       <ul>
-        {results.map((result, index) => (
+        {results?.map((result, index) => (
           <li key={index}>{result}</li>
         ))}
       </ul>
