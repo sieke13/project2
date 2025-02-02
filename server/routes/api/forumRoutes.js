@@ -1,13 +1,18 @@
 import { Router } from 'express';
-import { authenticateToken } from '../../middleware/authMiddleware.js'; 
-import { getPosts, createPost } from '../../controllers/forumController.js'; 
+import { getPosts, createPost, updatePost, deletePost } from '../../controllers/forumController.js'; 
 
 const router = Router();
 
-// GET /api/api/forum/posts - Get all forum posts
-router.get('/posts', authenticateToken, getPosts);
+// GET /api/forum/posts - Get all forum posts
+router.get('/posts', getPosts);
 
-// POST /api/api/forum/posts - Create a new forum post
-router.post('/posts', authenticateToken, createPost);
+// POST /api/forum/posts - Create a new forum post
+router.post('/posts', createPost);
+
+// PUT /api/forum/posts/:id - Update a forum post
+router.put('/posts/:id', updatePost);
+
+// DELETE /api/forum/posts/:id - Delete a forum post
+router.delete('/posts/:id', deletePost);
 
 export default router;

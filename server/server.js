@@ -15,7 +15,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable Cross-Origin Resource Sharing (CORS) for all routes
-app.use(cors());
+app.use(cors({
+  origin: 'https://classm8.onrender.com', // Replace with your client domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 // Parse incoming JSON requests
 app.use(express.json());

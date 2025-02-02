@@ -12,16 +12,48 @@ export const getPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, userId } = req.body;
 
-    if (!title || !content) {
-      return res.status(400).json({ message: 'Title and content are required' });
+    if (!title || !content || !userId) {
+      return res.status(400).json({ message: 'Title, content, and userId are required' });
     }
 
-    const newPost = await ForumPost.create({ title, content });
+    const newPost = await ForumPost.create({ title, content, userId });
     res.status(201).json(newPost);
   } catch (err) {
     console.error('Error creating post:', err);
     res.status(500).json({ message: 'Server error' });
+  }
+};
+
+export const updatePost = async (req, res) => {
+  try {
+    const { id, title, content } = req.body;
+    const post = await ForumPost.findByPk(id);
+    if (post) {
+      post.title = title;
+      post.content = content;
+      await post.save();
+      res.json(post);
+    } else {
+      res.status(404).json({ message: 'Post not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+export const deletePost = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const post = await ForumPost.findByPk(id);
+    if (post) {
+      await post.destroy();
+      res.json({ message: 'Post deleted' });
+    } else {
+      res.status(404).json({ message: 'Post not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
   }
 };
