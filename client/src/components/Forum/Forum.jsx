@@ -8,11 +8,11 @@ function Forum() {
   const [content, setContent] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editPostId, setEditPostId] = useState(null);
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(''); 
+  const [loading, setLoading] = useState(false); // Loading state
+  const [error, setError] = useState(''); // Error state
 
   const fetchPosts = async () => {
-    console.log("fetchPosts function is running..."); 
+    setLoading(true);
     try {
       const response = await axios.get('/api/forum/posts');
       if (Array.isArray(response.data)) {
@@ -22,7 +22,7 @@ function Forum() {
       }
     } catch (error) {
       console.error('Error fetching posts:', error);
-      setError('Failed to fetch posts.'); 
+      setError('Failed to fetch posts.'); // Set error message
       setPosts([]);
     } finally {
       setLoading(false);
@@ -42,8 +42,7 @@ function Forum() {
     setLoading(true);
     try {
       if (editMode) {
-        await axios.put('/api/forum/posts', {
-          id: editPostId,
+        await axios.put(`/api/forum/posts/${editPostId}`, {
           title,
           content,
         });
@@ -58,7 +57,7 @@ function Forum() {
       }
       setTitle('');
       setContent('');
-      fetchPosts();
+      fetchPosts(); 
     } catch (error) {
       console.error('Error creating/updating post:', error);
       setError('Failed to create/update post.'); // Set error message
@@ -70,7 +69,7 @@ function Forum() {
   const deletePost = async (id) => {
     setLoading(true);
     try {
-      await axios.delete('/api/forum/posts', { data: { id } });
+      await axios.delete(`/api/forum/posts/${id}`);
       fetchPosts();
     } catch (error) {
       console.error('Error deleting post:', error);

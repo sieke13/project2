@@ -28,8 +28,8 @@ export const createPost = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   try {
-    const { id, title, content } = req.body;
-    const post = await ForumPost.findByPk(id);
+    const { title, content } = req.body;
+    const post = await ForumPost.findByPk(req.params.id);
     if (post) {
       post.title = title;
       post.content = content;
@@ -45,8 +45,7 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
-    const { id } = req.body;
-    const post = await ForumPost.findByPk(id);
+    const post = await ForumPost.findByPk(req.params.id);
     if (post) {
       await post.destroy();
       res.json({ message: 'Post deleted' });

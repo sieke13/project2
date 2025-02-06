@@ -26,7 +26,7 @@ function SearchBar() {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        
+        placeholder="Search Wikipedia"
         className="p-2 border rounded"
       />
       <button onClick={handleSearch} className="ml-2 p-2 bg-blue-500 text-white rounded">Search</button>
