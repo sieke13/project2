@@ -6,31 +6,51 @@ import '../../styles/styles.css';
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // State for error messages
   const navigate = useNavigate();
-  const clickHandler = () => navigate ("/dashboard");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Logging',email,password)
+    console.log('Logging in:', email, password);
+    
     try {
-      const response = await axios.post('/api/auth/login', { email, password }); //ERRORRRRR
+      const response = await axios.post('/api/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       console.log('Login successful:', response);
       setEmail('');
       setPassword('');
-      await navigate('/dashboard');
+      setErrorMessage(''); // Clear any previous error
+      navigate('/dashboard');
       
     } catch (error) {
       console.error('Login failed:', error);
+      setErrorMessage('Invalid email or password. Please try again.'); // Set error message
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit" >Login</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)}
+          required 
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)}
+          required 
+        />
+        <button type="submit">Login</button>
+      </form>
+
+      {/* Show error message if login fails */}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+    </div>
   );
 }
 
