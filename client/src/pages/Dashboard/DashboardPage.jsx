@@ -1,5 +1,5 @@
 import React from 'react';
-import Forum from '../Forum/Forum.jsx';
+import Forum from '../../components/Forum/Forum.jsx';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
 import '../../styles/styles.css';
 

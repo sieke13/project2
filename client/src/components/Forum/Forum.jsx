@@ -8,11 +8,11 @@ function Forum() {
   const [content, setContent] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [editPostId, setEditPostId] = useState(null);
-  const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState(''); // Error state
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(''); 
 
   const fetchPosts = async () => {
-    console.log("fetchPosts function is running..."); // Debugging log
+    console.log("fetchPosts function is running..."); 
     try {
       const response = await axios.get('/api/forum/posts');
       if (Array.isArray(response.data)) {
@@ -22,7 +22,7 @@ function Forum() {
       }
     } catch (error) {
       console.error('Error fetching posts:', error);
-      setError('Failed to fetch posts.'); // Set error message
+      setError('Failed to fetch posts.'); 
       setPosts([]);
     } finally {
       setLoading(false);
