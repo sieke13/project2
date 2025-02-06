@@ -1,42 +1,25 @@
-import User from '../models/User.js';
+import User from '../models/User.js'; // Adjust the path
+import bcrypt from 'bcrypt';
 
-// Get all users
-export const getUsers = async (req, res) => {
+export const register = async (req, res) => {
   try {
-    const users = await User.findAll({
-      attributes: { exclude: ['password'] }
-    });
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    const { username, email, password } = req.body;
 
-// Get a user by id
-export const getUserById = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] }
-    });
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(404).json({ message: 'User not found' });
+    // Check if the user already exists
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already registered with this email' });
     }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
-// Create a new user
-export const createUser = async (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const newUser = await User.create({ username, email, password });
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const newUser = await User.create({ username, email, password: hashedPassword });
     res.status(201).json(newUser);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+  } catch (err) {
+    console.error('Error registering user:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 };
 
