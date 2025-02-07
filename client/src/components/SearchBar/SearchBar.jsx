@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/styles.css';
+import wikipediaLogo from "../../assets/wikipedia.svg";
 
 function SearchBar() {
   const [query, setQuery] = useState('');
@@ -22,14 +23,18 @@ function SearchBar() {
 
   return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search Wikipedia"
-        className="p-2 border rounded"
-      />
-      <button onClick={handleSearch} className="ml-2 p-2 bg-blue-500 text-white rounded">Search</button>
+      <div className="d-flex align-items-center border p-2 rounded" style={{ background: "#f8f9fa", maxWidth: "600px", margin: "0 auto" }}>
+        <img src={wikipediaLogo} alt="Wikipedia Logo" style={{ height: "40px", marginRight: "10px" }} />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search Wikipedia"
+          className="p-2 border rounded flex-grow-1"
+          style={{ width: "100%" }}
+        />
+        <button onClick={handleSearch} className="ml-2 p-2 bg-blue-500 text-white rounded">Search</button>
+      </div>
 
       {error && <p className="text-red-500 mt-2">{error}</p>}
 
@@ -44,7 +49,7 @@ function SearchBar() {
             >
               {result.title}
             </a>
-            <p dangerouslySetInnerHTML={{ __html: result.snippet }}></p> {/* Muestra un resumen */}
+            <p dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
           </li>
         ))}
       </ul>
