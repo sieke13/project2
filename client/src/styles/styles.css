@@ -7,7 +7,7 @@ body {
   padding: 20px;
   color: #333;
   overflow-x: hidden; /* Prevents horizontal scrolling */
-  background-image: url('../assets/background.png'); 
+  background-color: #e8e8ff;
   background-size: cover; 
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the background from repeating */

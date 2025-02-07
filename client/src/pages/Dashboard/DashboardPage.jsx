@@ -42,27 +42,6 @@ const DashboardPage = () => {
       <div className="container mt-5">
         {activeSection === 'posts' && (
           <>
-            {/* Bootstrap Carousel for Posts */}
-            <div id="postCarousel" className="carousel slide" data-bs-ride="carousel">
-              <div className="carousel-inner">
-                {posts.map((post, index) => (
-                  <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
-                    <div className="d-flex justify-content-center align-items-center" style={{ height: "200px", background: "#f8f9fa" }}>
-                      <div>
-                        <h3>{post.title}</h3>
-                        <p>{post.content}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#postCarousel" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#postCarousel" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              </button>
-            </div>
 
             {/* Forum Component */}
             <Forum />
