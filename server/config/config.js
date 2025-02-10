@@ -1,8 +1,7 @@
 import dotenv from 'dotenv';
+import { Sequelize } from 'sequelize';
 
 dotenv.config();
-
-import { Sequelize } from 'sequelize';
 
 // General configuration
 const config = {

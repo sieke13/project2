@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { config, sequelize } from './config/config.js';
 import routes from './routes/index.js';
+import commentRoutes from "./routes/api/commentRoutes.js";
 
 dotenv.config(); // Load environment variables at the start
 
@@ -33,6 +34,9 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Use the consolidated routes
 app.use('/api', routes); // Ensure routes are prefixed with /api
+
+// Use the comment routes
+app.use("/api/comments", commentRoutes);
 
 // Serve the main HTML file for the root URL
 app.get('*', (req, res) => {

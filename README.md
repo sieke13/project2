@@ -1,12 +1,5 @@
 # **CLASSM8**
 
-## **Team Members:**
-- Avendaño Calderon Juan Gerardo  
-- Garcia Rodríguez María Azucena  
-- Sanchez Valdivia Dhamar  
-- Garcia J. Merari  
-
----
 
 ## **Project Description**
 
@@ -190,7 +183,7 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
 ## **Links**
 - **GitHub Repository:** [Project Link](https://github.com/sieke13/project2)
 - **Deployed Application:** [Classm8 on Render]( https://classm8.onrender.com/)
-- **Demo Video:** _Coming Soon_
+- **Demo Video:** https://drive.google.com/file/d/17IvE3yPEX3QpfBWiz5RkSqIQlHxYad7C/view?usp=sharing
 
 ---
 
@@ -198,8 +191,14 @@ CLASSM8 is a collaborative classroom management platform designed for both teach
 
 This project is licensed under the MIT License.
 
----
+## **Team Members:**
+- Avendaño Calderon Juan Gerardo  
+- Garcia Rodríguez María Azucena  
+- Sanchez Valdivia Dhamar  
+- Garcia J. Merari  
 
-## **Video Demonstration**
 
-Placeholder for the project demonstration video. Add the video link here once it's ready.
+
+
+
+

@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import  { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/styles.css';
 
 function RegisterForm() {
@@ -9,6 +8,7 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(''); // State for error messages
+  const navigate = useNavigate(); // Get the navigate function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +26,9 @@ function RegisterForm() {
       setPassword('');
       setConfirmPassword('');
       setErrorMessage(''); // Clear previous errors
+
+      // Navigate to the Dashboard after successful registration
+      navigate('/dashboard');
     } catch (error) {
       console.error('Registration failed:', error);
 
