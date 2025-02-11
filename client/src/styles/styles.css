@@ -1,16 +1,16 @@
 /* Global Styles */
 body {
-  padding-top: 20px; /* Adds space between the top and the search bar */
+  padding-top: 20px; 
   font-family: 'Poppins', sans-serif;
   background-color: #fefefe;
   margin: 0;
   padding: 20px;
   color: #333;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-  background-image: url('../assets/background.png'); 
+  overflow-x: hidden; 
+  background-color: #e8e8ff;
   background-size: cover; 
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent the background from repeating */
+  background-position: center; 
+  background-repeat: no-repeat; 
   height: 100vh; 
 }
 
@@ -26,7 +26,7 @@ body {
 
 h2 {
   color: #FFFFFF; /* Pure White */
-  text-shadow: 2px 2px 8px rgba(0, 227, 255, 0.8); /* Soft Glow */
+  text-shadow: 2px 2px 8px rgba(0, 227, 255, 0.8); 
   font-weight: bold;
   font-size: 1.8rem;
   text-align: center;
@@ -46,12 +46,12 @@ h2 {
 }
 
 /* Navbar Styling */
-  .navbar {
-    background: linear-gradient(to right, #4B0082, #1a1f3b);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);    
-  }
+.navbar {
+  background: linear-gradient(to right, #4B0082, #1a1f3b);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);    
+}
 
 /* Wikipedia Search Bar */
 .search-bar-container {
@@ -75,13 +75,64 @@ h2 {
 }
 
 /* Form Styling */
-.form-container {
-  max-width: 450px;
-  margin: 40px auto;
-  padding: 20px;
+.forum-container {
+  background: #ffffff;
   border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-left: 5px solid #6c63ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.forum-post:hover {
+  transform: translateY(-3px);
+}
+
+/* 🔹 Post Title & Content */
+.forum-post h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.forum-post p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* 🔹 Comment Box */
+.comment-form textarea {
+  width: 100%;
+  border: 2px solid #6c63ff;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  outline: none;
+}
+
+.comment-form textarea:focus {
+  border-color: #8A2BE2;
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.3);
+}
+
+/* 🔹 Comment List */
+.comment-list {
+  background: #f9f9ff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.comment-item {
   background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 3px solid #8A2BE2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"],
@@ -149,7 +200,7 @@ button:hover {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow-x: hidden; /* Prevents elements from causing horizontal scrolling */
+  overflow-x: hidden; 
 }
 
 .forum-posts {
